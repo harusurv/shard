@@ -142,9 +142,11 @@ void OverviewPage::indexChangedBalance(int index){
 
         dateTicker->setDateTimeFormat("MMM dd");
         QDateTime start = QDateTime::currentDateTime();
+        QDateTime now = QDateTime::currentDateTime();
         QTime tt = start.time();
         tt.setHMS(0,0,0);
         start.setTime(tt);
+         now.setTime(tt);
         QDateTime end = QDateTime::currentDateTime();
         if(ui->comboBalance->currentIndex() == 0)
             start = start.addDays(-29);
@@ -153,11 +155,18 @@ void OverviewPage::indexChangedBalance(int index){
         ui->graphView->xAxis->setRange(start.toTime_t(), end.toTime_t());
         double min;
         double max;
-        QVector<QCPGraphData> timeData(31);
+        QVector<QCPGraphData> timeData(30);
         double val = 0;
-        for(int i = 0;i<31;i++){
-            if(walletModel->getTransactionTableModel()->mapTransactions.find(start.toMSecsSinceEpoch()/1000.0) != walletModel->getTransactionTableModel()->mapTransactions.end())
-                val = walletModel->getTransactionTableModel()->mapTransactions[start.toMSecsSinceEpoch()/1000.0];
+        for(int i = 0;i<30;i++){
+            if((start).secsTo(now) > 60)
+            {
+                if(walletModel->getTransactionTableModel()->mapTransactions.find(start.toMSecsSinceEpoch()/1000.0) != walletModel->getTransactionTableModel()->mapTransactions.end())
+                    val = walletModel->getTransactionTableModel()->mapTransactions[start.toMSecsSinceEpoch()/1000.0];
+            }
+            else{
+                int k = 0;
+            }
+
             if(i == 0)
             {
                 max = min = val;
