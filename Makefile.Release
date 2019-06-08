@@ -10402,7 +10402,10 @@ build/txviewdelegate.o: src/qt/txviewdelegate.cpp src/qt/txviewdelegate.h \
 		/mnt/mxe/usr/i686-w64-mingw32.static/qt5/include/QtCore/QAbstractTableModel \
 		/mnt/mxe/usr/i686-w64-mingw32.static/qt5/include/QtCore/QStringList \
 		/mnt/mxe/usr/i686-w64-mingw32.static/qt5/include/QtCore/QPoint \
-		/mnt/mxe/usr/i686-w64-mingw32.static/qt5/include/QtCore/QtGlobal
+		/mnt/mxe/usr/i686-w64-mingw32.static/qt5/include/QtCore/QtGlobal \
+		src/qt/transactionrecord.h \
+		src/uint256.h \
+		/mnt/mxe/usr/i686-w64-mingw32.static/qt5/include/QtCore/QList
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/txviewdelegate.o src/qt/txviewdelegate.cpp
 
 build/settings.o: src/qt/forms/settings.cpp src/qt/forms/settings.h \
