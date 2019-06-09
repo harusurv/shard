@@ -158,14 +158,11 @@ void OverviewPage::indexChangedBalance(int index){
         QVector<QCPGraphData> timeData(30);
         double val = 0;
         for(int i = 0;i<30;i++){
-            if((start).secsTo(now) > 60)
-            {
-                if(walletModel->getTransactionTableModel()->mapTransactions.find(start.toMSecsSinceEpoch()/1000.0) != walletModel->getTransactionTableModel()->mapTransactions.end())
-                    val = walletModel->getTransactionTableModel()->mapTransactions[start.toMSecsSinceEpoch()/1000.0];
-            }
-            else{
-                int k = 0;
-            }
+
+            if(walletModel->getTransactionTableModel()->mapTransactions.find(start.toMSecsSinceEpoch()/1000.0) != walletModel->getTransactionTableModel()->mapTransactions.end())
+                val = walletModel->getTransactionTableModel()->mapTransactions[start.toMSecsSinceEpoch()/1000.0];
+
+
 
             if(i == 0)
             {
